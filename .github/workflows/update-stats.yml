@@ -1,0 +1,37 @@
+name: Update NFL Stats
+
+# Runs automatically every Tuesday at 10am UTC (after Monday Night Football
+# has wrapped up), and can also be triggered manually from the Actions tab.
+on:
+  schedule:
+    - cron: "0 10 * * 2"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas requests pyarrow
+
+      - name: Run stats script
+        run: python compute_stats.py
+
+      - name: Commit updated stats.json
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add stats.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update NFL stats"
+          git push

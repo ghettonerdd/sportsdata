@@ -1,0 +1,296 @@
+{
+  "season": 2026,
+  "generated_at": "2026-09-15T10:03:32.986467+00:00",
+  "has_data": true,
+  "note": "DVOA is not included \u2014 no public data source exists for it. Enter manually.",
+  "teams": {
+    "ARI": {
+      "epa_per_play_off": 0.144,
+      "epa_per_play_def": -0.244,
+      "success_rate_off": 49.3,
+      "success_rate_allowed": 41.2,
+      "any_a_off": 7.62,
+      "plays_off": 69,
+      "plays_def": 51
+    },
+    "LAC": {
+      "epa_per_play_off": -0.244,
+      "epa_per_play_def": 0.144,
+      "success_rate_off": 41.2,
+      "success_rate_allowed": 49.3,
+      "any_a_off": 4.91,
+      "plays_off": 51,
+      "plays_def": 69
+    },
+    "PIT": {
+      "epa_per_play_off": -0.303,
+      "epa_per_play_def": -0.321,
+      "success_rate_off": 37.7,
+      "success_rate_allowed": 36.8,
+      "any_a_off": 5.02,
+      "plays_off": 61,
+      "plays_def": 57
+    },
+    "ATL": {
+      "epa_per_play_off": -0.321,
+      "epa_per_play_def": -0.303,
+      "success_rate_off": 36.8,
+      "success_rate_allowed": 37.7,
+      "any_a_off": 1.6,
+      "plays_off": 57,
+      "plays_def": 61
+    },
+    "IND": {
+      "epa_per_play_off": -0.241,
+      "epa_per_play_def": 0.321,
+      "success_rate_off": 47.2,
+      "success_rate_allowed": 58.3,
+      "any_a_off": 3.54,
+      "plays_off": 53,
+      "plays_def": 60
+    },
+    "BAL": {
+      "epa_per_play_off": 0.321,
+      "epa_per_play_def": -0.241,
+      "success_rate_off": 58.3,
+      "success_rate_allowed": 47.2,
+      "any_a_off": 11.57,
+      "plays_off": 60,
+      "plays_def": 53
+    },
+    "BUF": {
+      "epa_per_play_off": 0.229,
+      "epa_per_play_def": 0.069,
+      "success_rate_off": 46.2,
+      "success_rate_allowed": 52.1,
+      "any_a_off": 10.68,
+      "plays_off": 52,
+      "plays_def": 73
+    },
+    "HOU": {
+      "epa_per_play_off": 0.069,
+      "epa_per_play_def": 0.229,
+      "success_rate_off": 52.1,
+      "success_rate_allowed": 46.2,
+      "any_a_off": 6.75,
+      "plays_off": 73,
+      "plays_def": 52
+    },
+    "CHI": {
+      "epa_per_play_off": 0.409,
+      "epa_per_play_def": 0.182,
+      "success_rate_off": 58.6,
+      "success_rate_allowed": 58.1,
+      "any_a_off": 9.12,
+      "plays_off": 70,
+      "plays_def": 62
+    },
+    "CAR": {
+      "epa_per_play_off": 0.182,
+      "epa_per_play_def": 0.409,
+      "success_rate_off": 58.1,
+      "success_rate_allowed": 58.6,
+      "any_a_off": 8.76,
+      "plays_off": 62,
+      "plays_def": 70
+    },
+    "CLE": {
+      "epa_per_play_off": -0.184,
+      "epa_per_play_def": 0.338,
+      "success_rate_off": 49.0,
+      "success_rate_allowed": 64.2,
+      "any_a_off": 5.0,
+      "plays_off": 49,
+      "plays_def": 53
+    },
+    "JAX": {
+      "epa_per_play_off": 0.338,
+      "epa_per_play_def": -0.184,
+      "success_rate_off": 64.2,
+      "success_rate_allowed": 49.0,
+      "any_a_off": 12.56,
+      "plays_off": 53,
+      "plays_def": 49
+    },
+    "DAL": {
+      "epa_per_play_off": 0.221,
+      "epa_per_play_def": 0.369,
+      "success_rate_off": 55.8,
+      "success_rate_allowed": 61.5,
+      "any_a_off": 5.0,
+      "plays_off": 52,
+      "plays_def": 65
+    },
+    "NYG": {
+      "epa_per_play_off": 0.369,
+      "epa_per_play_def": 0.221,
+      "success_rate_off": 61.5,
+      "success_rate_allowed": 55.8,
+      "any_a_off": 8.76,
+      "plays_off": 65,
+      "plays_def": 52
+    },
+    "DEN": {
+      "epa_per_play_off": -0.344,
+      "epa_per_play_def": 0.164,
+      "success_rate_off": 41.3,
+      "success_rate_allowed": 48.4,
+      "any_a_off": 2.5,
+      "plays_off": 46,
+      "plays_def": 64
+    },
+    "KC": {
+      "epa_per_play_off": 0.164,
+      "epa_per_play_def": -0.344,
+      "success_rate_off": 48.4,
+      "success_rate_allowed": 41.3,
+      "any_a_off": 5.39,
+      "plays_off": 64,
+      "plays_def": 46
+    },
+    "MIN": {
+      "epa_per_play_off": -0.02,
+      "epa_per_play_def": -0.175,
+      "success_rate_off": 44.1,
+      "success_rate_allowed": 40.3,
+      "any_a_off": 4.81,
+      "plays_off": 59,
+      "plays_def": 67
+    },
+    "GB": {
+      "epa_per_play_off": -0.175,
+      "epa_per_play_def": -0.02,
+      "success_rate_off": 40.3,
+      "success_rate_allowed": 44.1,
+      "any_a_off": 6.96,
+      "plays_off": 67,
+      "plays_def": 59
+    },
+    "MIA": {
+      "epa_per_play_off": -0.236,
+      "epa_per_play_def": -0.039,
+      "success_rate_off": 36.0,
+      "success_rate_allowed": 48.4,
+      "any_a_off": 3.78,
+      "plays_off": 50,
+      "plays_def": 64
+    },
+    "LV": {
+      "epa_per_play_off": -0.039,
+      "epa_per_play_def": -0.236,
+      "success_rate_off": 48.4,
+      "success_rate_allowed": 36.0,
+      "any_a_off": 4.33,
+      "plays_off": 64,
+      "plays_def": 50
+    },
+    "SEA": {
+      "epa_per_play_off": 0.066,
+      "epa_per_play_def": -0.11,
+      "success_rate_off": 51.1,
+      "success_rate_allowed": 43.3,
+      "any_a_off": 7.43,
+      "plays_off": 47,
+      "plays_def": 67
+    },
+    "NE": {
+      "epa_per_play_off": -0.11,
+      "epa_per_play_def": 0.066,
+      "success_rate_off": 43.3,
+      "success_rate_allowed": 51.1,
+      "any_a_off": 1.36,
+      "plays_off": 67,
+      "plays_def": 47
+    },
+    "DET": {
+      "epa_per_play_off": 0.0,
+      "epa_per_play_def": -0.031,
+      "success_rate_off": 52.1,
+      "success_rate_allowed": 45.3,
+      "any_a_off": 5.95,
+      "plays_off": 73,
+      "plays_def": 86
+    },
+    "NO": {
+      "epa_per_play_off": -0.031,
+      "epa_per_play_def": 0.0,
+      "success_rate_off": 45.3,
+      "success_rate_allowed": 52.1,
+      "any_a_off": 5.27,
+      "plays_off": 86,
+      "plays_def": 73
+    },
+    "NYJ": {
+      "epa_per_play_off": 0.168,
+      "epa_per_play_def": -0.119,
+      "success_rate_off": 55.0,
+      "success_rate_allowed": 49.0,
+      "any_a_off": 8.96,
+      "plays_off": 60,
+      "plays_def": 49
+    },
+    "TEN": {
+      "epa_per_play_off": -0.119,
+      "epa_per_play_def": 0.168,
+      "success_rate_off": 49.0,
+      "success_rate_allowed": 55.0,
+      "any_a_off": 3.87,
+      "plays_off": 49,
+      "plays_def": 60
+    },
+    "LA": {
+      "epa_per_play_off": -0.265,
+      "epa_per_play_def": 0.179,
+      "success_rate_off": 51.8,
+      "success_rate_allowed": 65.6,
+      "any_a_off": 4.39,
+      "plays_off": 56,
+      "plays_def": 64
+    },
+    "SF": {
+      "epa_per_play_off": 0.179,
+      "epa_per_play_def": -0.265,
+      "success_rate_off": 65.6,
+      "success_rate_allowed": 51.8,
+      "any_a_off": 6.47,
+      "plays_off": 64,
+      "plays_def": 56
+    },
+    "TB": {
+      "epa_per_play_off": -0.185,
+      "epa_per_play_def": -0.002,
+      "success_rate_off": 58.8,
+      "success_rate_allowed": 53.2,
+      "any_a_off": 5.36,
+      "plays_off": 51,
+      "plays_def": 62
+    },
+    "CIN": {
+      "epa_per_play_off": -0.002,
+      "epa_per_play_def": -0.185,
+      "success_rate_off": 53.2,
+      "success_rate_allowed": 58.8,
+      "any_a_off": 5.95,
+      "plays_off": 62,
+      "plays_def": 51
+    },
+    "WAS": {
+      "epa_per_play_off": 0.06,
+      "epa_per_play_def": 0.071,
+      "success_rate_off": 44.1,
+      "success_rate_allowed": 37.3,
+      "any_a_off": 5.49,
+      "plays_off": 68,
+      "plays_def": 51
+    },
+    "PHI": {
+      "epa_per_play_off": 0.071,
+      "epa_per_play_def": 0.06,
+      "success_rate_off": 37.3,
+      "success_rate_allowed": 44.1,
+      "any_a_off": 7.81,
+      "plays_off": 51,
+      "plays_def": 68
+    }
+  }
+}

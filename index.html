@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Homepage</title>
+<style>
+  :root {
+    --win-gray: #c0c0c0;
+    --win-gray-dark: #808080;
+    --win-gray-darker: #404040;
+    --win-blue: #000080;
+    --win-white: #ffffff;
+    --win-black: #000000;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #008080;
+    font-family: "Courier New", Courier, monospace;
+    color: var(--win-black);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .window {
+    width: 100%;
+    max-width: 880px;
+    background: var(--win-gray);
+    border: 2px solid var(--win-white);
+    border-right-color: var(--win-black);
+    border-bottom-color: var(--win-black);
+    box-shadow: 1px 1px 0 var(--win-gray-darker);
+  }
+
+  .titlebar {
+    background: var(--win-blue);
+    color: var(--win-white);
+    padding: 4px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .titlebar-buttons { display: flex; gap: 4px; }
+  .titlebar-buttons span {
+    display: inline-block;
+    width: 16px; height: 14px;
+    background: var(--win-gray);
+    border: 1px solid var(--win-white);
+    border-right-color: var(--win-black);
+    border-bottom-color: var(--win-black);
+    text-align: center; line-height: 12px; font-size: 10px;
+  }
+
+  .menubar {
+    display: flex; gap: 14px;
+    padding: 3px 8px;
+    border-bottom: 1px solid var(--win-gray-dark);
+    font-size: 13px;
+  }
+
+  .content {
+    padding: 18px 22px 22px 22px;
+    background: var(--win-white);
+    margin: 6px;
+    border: 2px solid var(--win-gray-dark);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    min-height: 340px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin: 0 0 4px 0;
+    border-bottom: 2px solid var(--win-black);
+    padding-bottom: 6px;
+    display: inline-block;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    color: var(--win-gray-darker);
+    margin: 6px 0 16px 0;
+  }
+
+  p { font-size: 14px; line-height: 1.6; margin: 0 0 14px 0; }
+  ul { font-size: 14px; line-height: 1.7; padding-left: 22px; margin: 0 0 18px 0; }
+
+  a, .link-btn {
+    color: var(--win-blue);
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+  a:visited { color: #800080; }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--win-gray-dark);
+    border-bottom: 1px solid var(--win-white);
+    margin: 18px 0;
+  }
+
+  .statusbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-top: 1px solid var(--win-white);
+  }
+
+  .marquee-box {
+    border: 1px solid var(--win-gray-dark);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    padding: 8px 10px;
+    font-size: 13px;
+    background: #ffffe1;
+    margin-bottom: 18px;
+  }
+
+  .banner {
+    border: 1px solid var(--win-gray-dark);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    background: #ffffe1;
+    padding: 8px 10px;
+    font-size: 12px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+
+  .picker-row { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+
+  .picker {
+    flex: 1;
+    min-width: 220px;
+    border: 2px solid var(--win-gray-dark);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    padding: 10px 12px;
+    background: var(--win-gray);
+  }
+
+  .picker label { display: block; font-size: 11px; margin-bottom: 4px; color: var(--win-gray-darker); }
+
+  .picker select, .picker input {
+    width: 100%;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    padding: 3px 4px;
+    border: 2px solid var(--win-gray-darker);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    background: var(--win-white);
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 18px; }
+  th, td { border: 1px solid var(--win-gray-dark); padding: 6px 8px; text-align: center; }
+  th { background: var(--win-gray); font-weight: bold; }
+  td.metric-name { text-align: left; background: #f0f0f0; font-weight: bold; }
+  .edge-a { background: #e2f0e2; }
+  .edge-b { background: #f0e2e2; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: bold;
+    background: var(--win-gray-dark);
+    color: var(--win-white);
+    padding: 3px 8px;
+    margin: 18px 0 0 0;
+  }
+
+  .lines-table td, .lines-table th { font-size: 12px; }
+
+  .note { font-size: 11px; color: var(--win-gray-darker); margin-top: 4px; }
+
+  #matchup-screen { display: none; }
+
+  .weather-btn {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--win-blue);
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+
+  .team-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin-right: 6px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+
+  #home-screen table {
+    table-layout: fixed;
+    font-size: 12px;
+  }
+
+  #home-screen th:nth-child(1), #home-screen td:nth-child(1) { width: 68px; }
+  #home-screen th:nth-child(3), #home-screen td:nth-child(3) { width: 155px; white-space: nowrap; }
+  #home-screen th:nth-child(4), #home-screen td:nth-child(4) { width: 62px; }
+  #home-screen th:nth-child(5), #home-screen td:nth-child(5) { width: 48px; }
+  #home-screen th:nth-child(6), #home-screen td:nth-child(6) { width: 110px; }
+  #home-screen th:nth-child(7), #home-screen td:nth-child(7) { width: 165px; }
+  #home-screen td.metric-name { white-space: normal; word-break: break-word; }
+
+  .forum-bar {
+    background: linear-gradient(to bottom, #4a76a8, #2f5480);
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 5px 10px;
+    margin: 16px 0 0 0;
+    border: 1px solid #1c3a5e;
+  }
+
+  .forum-list { margin-bottom: 4px; }
+
+  .forum-post {
+    display: flex;
+    border: 1px solid var(--win-gray-dark);
+    border-top: none;
+    background: var(--win-white);
+  }
+
+  .forum-post:nth-child(even) { background: #f3f3f3; }
+
+  .upvote-box {
+    width: 46px;
+    flex-shrink: 0;
+    text-align: center;
+    background: #e8e8e8;
+    border-right: 1px solid var(--win-gray-dark);
+    padding: 8px 0;
+  }
+
+  .upvote-btn {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--win-gray-darker);
+    background: none;
+    border: none;
+    padding: 0;
+    display: block;
+    margin: 0 auto 2px auto;
+  }
+
+  .upvote-btn.voted { color: #c00000; }
+
+  .upvote-count { font-size: 12px; font-weight: bold; }
+
+  .forum-post-body { padding: 8px 12px; flex: 1; }
+
+  .forum-post-title { font-weight: bold; color: var(--win-blue); font-size: 13px; }
+
+  .forum-post-text { font-size: 12px; margin: 4px 0; line-height: 1.5; }
+
+  .forum-post-meta { font-size: 11px; color: var(--win-gray-darker); }
+
+  .forum-form {
+    border: 2px solid var(--win-gray-dark);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    background: var(--win-gray);
+    padding: 10px;
+    margin: 10px 0 16px 0;
+    display: none;
+  }
+
+  .forum-form input, .forum-form textarea {
+    width: 100%;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    padding: 4px;
+    margin-bottom: 8px;
+    border: 2px solid var(--win-gray-darker);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+  }
+
+  .win-btn {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    background: var(--win-gray);
+    border: 2px solid var(--win-white);
+    border-right-color: var(--win-black);
+    border-bottom-color: var(--win-black);
+    padding: 4px 12px;
+    cursor: pointer;
+  }
+
+  .win-btn:active {
+    border: 2px solid var(--win-black);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal-window {
+    width: 300px;
+    background: var(--win-gray);
+    border: 2px solid var(--win-white);
+    border-right-color: var(--win-black);
+    border-bottom-color: var(--win-black);
+    box-shadow: 2px 2px 0 var(--win-gray-darker);
+  }
+
+  .modal-titlebar {
+    background: var(--win-blue);
+    color: var(--win-white);
+    padding: 4px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .modal-close {
+    cursor: pointer;
+    background: var(--win-gray);
+    border: 1px solid var(--win-white);
+    border-right-color: var(--win-black);
+    border-bottom-color: var(--win-black);
+    width: 16px;
+    height: 14px;
+    text-align: center;
+    line-height: 12px;
+    font-size: 10px;
+  }
+
+  .modal-body {
+    padding: 12px 14px;
+    background: var(--win-white);
+    margin: 6px;
+    border: 2px solid var(--win-gray-dark);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 110px;
+  }
+
+  .wx-card {
+    text-align: center;
+    background: linear-gradient(to bottom, #eaf6ff, #ffffff);
+    border: 1px solid var(--win-gray-dark);
+    padding: 10px 6px 12px 6px;
+  }
+
+  .wx-icon { font-size: 34px; line-height: 1; }
+
+  .wx-condition {
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--win-gray-darker);
+    margin-top: 2px;
+  }
+
+  .wx-temp-now {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--win-blue);
+    margin-top: 2px;
+  }
+
+  .wx-note { font-size: 11px; color: #666; }
+
+  .wx-divider {
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    background: var(--win-gray-dark);
+    padding: 2px 6px;
+    margin: 10px 0 6px 0;
+  }
+
+  .wx-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+    text-align: left;
+  }
+
+  .wx-grid > div {
+    background: #fff;
+    border: 1px solid var(--win-gray-dark);
+    padding: 4px 8px;
+  }
+
+  .wx-label {
+    display: block;
+    font-size: 9px;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+
+  .wx-value {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--win-black);
+  }
+</style>
+</head>
+<body>
+
+  <div class="window">
+    <div class="titlebar">
+      <span id="titlebar-label">
+        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="vertical-align:middle; margin-right:5px; margin-bottom:2px;">
+          <rect x="5" y="2" width="6" height="1" fill="#B0B7BD"/>
+          <rect x="4" y="3" width="8" height="1" fill="#B0B7BD"/>
+          <rect x="3" y="4" width="10" height="1" fill="#B0B7BD"/>
+          <rect x="3" y="5" width="10" height="1" fill="#B0B7BD"/>
+          <rect x="3" y="6" width="10" height="1" fill="#B0B7BD"/>
+          <rect x="4" y="7" width="8" height="1" fill="#B0B7BD"/>
+          <rect x="5" y="8" width="6" height="1" fill="#B0B7BD"/>
+          <rect x="7" y="2" width="2" height="4" fill="#1B3A5C"/>
+          <rect x="6" y="6" width="4" height="1" fill="#2B2B2B"/>
+          <rect x="5" y="7" width="1" height="1" fill="#2B2B2B"/>
+          <rect x="10" y="7" width="1" height="1" fill="#2B2B2B"/>
+          <rect x="6" y="7" width="4" height="1" fill="#1a1a1a"/>
+          <rect x="6" y="9" width="4" height="1" fill="#1B3A5C"/>
+          <rect x="4" y="10" width="8" height="1" fill="#1B3A5C"/>
+          <rect x="3" y="11" width="1" height="1" fill="#ffffff"/>
+          <rect x="4" y="11" width="8" height="1" fill="#1B3A5C"/>
+          <rect x="12" y="11" width="1" height="1" fill="#ffffff"/>
+          <rect x="3" y="12" width="10" height="1" fill="#1B3A5C"/>
+          <rect x="4" y="13" width="8" height="1" fill="#1B3A5C"/>
+          <rect x="5" y="14" width="6" height="1" fill="#1B3A5C"/>
+        </svg><span id="titlebar-text">My Homepage.txt</span></span>
+      <div class="titlebar-buttons">
+        <span>_</span><span>□</span><span>x</span>
+      </div>
+    </div>
+
+    <div class="menubar">
+      <span>File</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>Help</span>
+    </div>
+
+    <!-- HOME SCREEN -->
+    <div class="content" id="home-screen">
+      <h1>
+        <svg width="28" height="28" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="vertical-align:middle; margin-right:8px;">
+          <rect x="5" y="2" width="6" height="1" fill="#B0B7BD"/>
+          <rect x="4" y="3" width="8" height="1" fill="#B0B7BD"/>
+          <rect x="3" y="4" width="10" height="1" fill="#B0B7BD"/>
+          <rect x="3" y="5" width="10" height="1" fill="#B0B7BD"/>
+          <rect x="3" y="6" width="10" height="1" fill="#B0B7BD"/>
+          <rect x="4" y="7" width="8" height="1" fill="#B0B7BD"/>
+          <rect x="5" y="8" width="6" height="1" fill="#B0B7BD"/>
+          <rect x="7" y="2" width="2" height="4" fill="#1B3A5C"/>
+          <rect x="6" y="6" width="4" height="1" fill="#2B2B2B"/>
+          <rect x="5" y="7" width="1" height="1" fill="#2B2B2B"/>
+          <rect x="10" y="7" width="1" height="1" fill="#2B2B2B"/>
+          <rect x="6" y="7" width="4" height="1" fill="#1a1a1a"/>
+          <rect x="6" y="9" width="4" height="1" fill="#1B3A5C"/>
+          <rect x="4" y="10" width="8" height="1" fill="#1B3A5C"/>
+          <rect x="3" y="11" width="1" height="1" fill="#ffffff"/>
+          <rect x="4" y="11" width="8" height="1" fill="#1B3A5C"/>
+          <rect x="12" y="11" width="1" height="1" fill="#ffffff"/>
+          <rect x="3" y="12" width="10" height="1" fill="#1B3A5C"/>
+          <rect x="4" y="13" width="8" height="1" fill="#1B3A5C"/>
+          <rect x="5" y="14" width="6" height="1" fill="#1B3A5C"/>
+        </svg>NFL Schedule
+      </h1>
+      <p class="subtitle">Week 1 — 2026 season</p>
+
+      <div class="banner">
+        Odds (moneyline + spread + total) were DraftKings lines as of Sep 3 —
+        click below to pull live numbers instead. Weather is the current
+        forecast (unreliable much past 5-7 days out). Dome/fixed-roof games
+        are marked as such since weather doesn't apply.
+      </div>
+
+      <p>
+        <button class="win-btn" onclick="loadSchedule()">&#8635; Refresh Schedule</button>
+        <span id="schedule-status" style="font-size:11px; color:#555; margin-left:8px;"></span>
+      </p>
+
+      <div id="schedule-container">
+        <p class="note">Loading current week's schedule...</p>
+      </div>
+
+      <hr>
+
+      <p>Pages:</p>
+      <ul>
+        <li><button class="link-btn" onclick="showScreen('matchup')">NFL Matchup Comparison</button></li>
+        <li><button class="link-btn" onclick="showScreen('glossary')">Metrics Glossary</button></li>
+        <li><button class="link-btn" onclick="showScreen('forum')">Fan Forum</button></li>
+      </ul>
+
+      <hr>
+
+      <p>Contact: <a href="mailto:you@example.com">you@example.com</a></p>
+    </div>
+
+    <!-- MATCHUP SCREEN -->
+    <div class="content" id="matchup-screen">
+      <button class="link-btn" onclick="showScreen('home')">&lt;&lt; Back to homepage</button>
+      <p class="subtitle" id="matchup-subtitle">Week ?? — sample layout, not live data</p>
+
+      <div class="banner">
+        SAMPLE DATA ONLY. The numbers below are placeholders so you can see the
+        layout. Swap in real weekly stats (nflfastR / TeamRankings / FTN, etc.)
+        before using this to think through a bet. This page is a research
+        tool, not a pick or a recommendation.
+      </div>
+
+      <div class="picker-row">
+        <div class="picker">
+          <label>TEAM A</label>
+          <input type="text" id="team-a-input" value="Kansas City Chiefs">
+        </div>
+        <div class="picker">
+          <label>TEAM B</label>
+          <input type="text" id="team-b-input" value="Baltimore Ravens">
+        </div>
+      </div>
+
+      <p class="section-label">EFFICIENCY METRICS</p>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">Metric</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">EPA/play — Offense</td><td class="edge-a">0.11</td><td>0.05</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">EPA/play — Defense</td><td>-0.02</td><td class="edge-b">-0.08</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">EPA Differential (Off − Def)</td><td class="edge-a">0.13</td><td>0.13</td><td>Even</td></tr>
+          <tr><td class="metric-name">DVOA — Offense</td><td class="edge-a">14.2%</td><td>9.8%</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">DVOA — Defense</td><td>-3.1%</td><td class="edge-b">-11.4%</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Success Rate — Offense</td><td class="edge-a">47.5%</td><td>45.1%</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">Success Rate Allowed — Defense</td><td>44.0%</td><td class="edge-b">40.8%</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">ANY/A Differential</td><td class="edge-a">+1.8</td><td>+1.1</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">Point Differential (per game)</td><td class="edge-a">+6.4</td><td>+5.9</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+        </tbody>
+      </table>
+      <p class="note">DVOA figures are manual-entry — no public API exists for them, so pull weekly from FTN Fantasy or Football Outsiders.</p>
+
+      <p class="section-label">BETTING LINES (reference only)</p>
+      <table class="lines-table">
+        <thead>
+          <tr><th style="text-align:left;">Market</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">Moneyline</td><td id="bl-ml-a">-145</td><td id="bl-ml-b">+124</td></tr>
+          <tr><td class="metric-name">Spread</td><td id="bl-spread-a">-2.5</td><td id="bl-spread-b">+2.5</td></tr>
+          <tr><td class="metric-name">Team Total</td><td id="bl-total-a">24.5</td><td id="bl-total-b">21.5</td></tr>
+          <tr><td class="metric-name">Game Total</td><td colspan="2" id="bl-total-game">46.5</td></tr>
+        </tbody>
+      </table>
+      <p class="note" id="bl-updated-note">Lines shown are illustrative and will move — pull current numbers from your sportsbook before comparing to the metrics above.</p>
+
+      <p class="section-label">RECORDS</p>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">Category</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">Straight-Up (SU) Record</td><td id="rec-su-a">11-6</td><td id="rec-su-b">10-7</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">ATS Record (Overall)</td><td>9-8</td><td class="edge-b">10-7</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">ATS — Home</td><td class="edge-a">6-3</td><td>4-4</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">ATS — Road</td><td>3-5</td><td class="edge-b">6-3</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">ATS — As Favorite</td><td>7-6</td><td>6-5</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">ATS — As Underdog</td><td>2-2</td><td class="edge-b">4-2</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Moneyline Record — As Favorite</td><td>10-4</td><td>8-5</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">Moneyline Record — As Underdog</td><td>1-1</td><td>2-2</td><td>Even</td></tr>
+          <tr><td class="metric-name">Division Record (SU / ATS)</td><td>4-2 / 3-3</td><td>3-3 / 4-2</td><td>Split</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">RECENT FORM</p>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">Category</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">Last 5 (SU / ATS / Avg Margin)</td><td>4-1 / 3-2 / +5.4</td><td>3-2 / 4-1 / +3.1</td><td>Split</td></tr>
+          <tr><td class="metric-name">Last 10 (SU / ATS)</td><td>7-3 / 5-5</td><td>6-4 / 6-4</td><td class="edge-cell" data-orig="Ravens (ATS)">Ravens (ATS)</td></tr>
+          <tr><td class="metric-name">Current Streak (W/L, Cover)</td><td>W2, 1-1 ATS</td><td>W3, 2-1 ATS</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Last 3-4 Gm EPA / Pt Diff / TO Margin</td><td>+0.09 / +4.2 / +2</td><td>+0.07 / +5.8 / 0</td><td>Split</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">SCORING &amp; MARGIN</p>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">Category</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">Points For / Against (Season)</td><td>27.1 / 20.8</td><td>26.3 / 19.9</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Points For / Against (Last 5)</td><td>28.4 / 19.2</td><td>27.0 / 18.5</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Avg Margin (W/L)</td><td>+6.3</td><td>+6.4</td><td>Even</td></tr>
+          <tr><td class="metric-name">Point Differential (Season)</td><td class="edge-a" id="rec-ptdiff-a">+6.4</td><td id="rec-ptdiff-b">+5.9</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">Point Differential (Last 5-6)</td><td>+7.1</td><td class="edge-b">+7.8</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Pythagorean Wins</td><td>10.6</td><td>10.9</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Close-Game Record (&le;8 pts / &le;3 pts)</td><td>4-2 / 2-1</td><td>3-3 / 1-2</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">SITUATIONAL &amp; BETTING TRENDS</p>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">Category</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">ATS — Home Favorite</td><td>5-2</td><td>3-3</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">ATS — Road Underdog</td><td>1-1</td><td>3-1</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">ATS — Division Games</td><td>3-3</td><td>4-2</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">ATS After a Win / After a Loss</td><td>5-4 / 4-4</td><td>6-3 / 4-4</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">ATS Off Bye / Short Rest</td><td>1-0 / 2-2</td><td>1-1 / 3-1</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Trap / Look-Ahead Spot Flag</td><td>No</td><td>No</td><td>—</td></tr>
+          <tr><td class="metric-name">Cover Rate When Favored 3-7 / 7+</td><td>60% / 50%</td><td>55% / 66%</td><td>Split</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">KEY BOX-SCORE METRICS</p>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">Category</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">Turnover Differential</td><td class="edge-a">+7</td><td>+4</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">Interceptions / Fumbles Lost</td><td>9 / 5</td><td>11 / 6</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+          <tr><td class="metric-name">3rd Down % — Off / Def</td><td>44.8% / 36.1%</td><td>41.2% / 33.0%</td><td class="edge-cell" data-orig="Ravens (Def)">Ravens (Def)</td></tr>
+          <tr><td class="metric-name">Red Zone TD % — Off / Def</td><td>61% / 52%</td><td>58% / 47%</td><td class="edge-cell" data-orig="Ravens (Def)">Ravens (Def)</td></tr>
+          <tr><td class="metric-name">Time of Possession (avg)</td><td>29:41</td><td>31:18</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Yards/Play — Off / Def</td><td>5.9 / 5.1</td><td>5.7 / 4.9</td><td class="edge-cell" data-orig="Ravens (Def)">Ravens (Def)</td></tr>
+          <tr><td class="metric-name">Sack Rate / Pressure Rate Diff</td><td>+2.1% / +6.4%</td><td>+3.4% / +8.9%</td><td class="edge-cell" data-orig="Ravens">Ravens</td></tr>
+          <tr><td class="metric-name">Penalty Yards Differential</td><td>+8.2</td><td>-3.5</td><td class="edge-cell" data-orig="Chiefs">Chiefs</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">MARKET &amp; LINE CONTEXT</p>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">Category</th><th class="th-team-a">Chiefs</th><th class="th-team-b">Ravens</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="metric-name">Opening Line vs Current</td><td colspan="2">-1.5 &rarr; -2.5 (Chiefs)</td></tr>
+          <tr><td class="metric-name">Public Bets % / Money %</td><td>64% / 71%</td><td>36% / 29%</td></tr>
+          <tr><td class="metric-name">Implied Win Probability (from ML)</td><td>59.2%</td><td>44.6%</td></tr>
+          <tr><td class="metric-name">Landed on Key Number (3 / 7)</td><td>28% / 14%</td><td>22% / 17%</td></tr>
+          <tr><td class="metric-name">Over/Under Record</td><td colspan="2">Overs 9-8, Unders 8-9 (combined games)</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Line movement and public % need a live odds feed — plug in your book's numbers here each week.</p>
+
+      <p class="section-label">CONTEXTUAL / MOTIVATIONAL NOTES</p>
+      <div class="banner">
+        <strong>Playoff implications:</strong> both teams in the hunt, no clinch/elimination scenario yet.<br>
+        <strong>Injuries:</strong> [fill in — flag starting QB, OL, and pass rush status especially].<br>
+        <strong>Rest advantage:</strong> both teams on a standard week (no bye, no short week).<br>
+        <strong>Travel / weather:</strong> [fill in — note time-zone travel, dome vs outdoor, wind/precip for total bets].<br>
+        <strong>Head-to-head:</strong> Chiefs won the last meeting 27-20 in Week 14 last season.
+      </div>
+
+      <hr>
+      <p><button class="link-btn" onclick="showScreen('glossary')">What do these terms mean? &rarr; Metrics Glossary</button></p>
+    </div>
+
+    <!-- GLOSSARY SCREEN -->
+    <div class="content" id="glossary-screen" style="display:none;">
+      <button class="link-btn" onclick="showScreen('home')">&lt;&lt; Back to homepage</button>
+      <p class="subtitle">Plain-English definitions for every stat used on this site</p>
+
+      <p class="section-label">BETTING BASICS</p>
+      <table>
+        <tbody>
+          <tr><td class="metric-name" style="width:160px;">Moneyline</td><td style="text-align:left;">A bet on who wins the game outright — no point spread involved. A negative number (e.g. -175) shows what you'd need to bet to win $100. A positive number (e.g. +145) shows what a $100 bet would win.</td></tr>
+          <tr><td class="metric-name">Spread</td><td style="text-align:left;">Points added to the underdog (or subtracted from the favorite) to make the bet closer to a coin flip. The favorite has to win by more than the spread to "cover"; the underdog covers by losing by less than the spread or winning outright.</td></tr>
+          <tr><td class="metric-name">Total (Over/Under)</td><td style="text-align:left;">A bet on the combined final score of both teams — will it go over or under the posted number?</td></tr>
+          <tr><td class="metric-name">Team Total</td><td style="text-align:left;">Same idea as the Total, but just for one team's own points, not the combined score.</td></tr>
+          <tr><td class="metric-name">Implied Win Probability</td><td style="text-align:left;">The win chance a moneyline is suggesting, converted into a percentage. A -175 favorite implies roughly a 64% chance to win, for example.</td></tr>
+          <tr><td class="metric-name">Key Numbers</td><td style="text-align:left;">The final margins that come up most often in NFL games — 3 and 7 points, above all. Spreads that sit right on or near these numbers matter more than others.</td></tr>
+          <tr><td class="metric-name">Public Betting %</td><td style="text-align:left;">The share of bets (or dollars) being placed on each side. When the betting money is lopsided but the line hasn't moved much, that can be a signal "sharp" money is on the other side.</td></tr>
+          <tr><td class="metric-name">SU (Straight-Up) Record</td><td style="text-align:left;">Plain win-loss record — did the team win the game, regardless of the spread?</td></tr>
+          <tr><td class="metric-name">ATS (Against The Spread) Record</td><td style="text-align:left;">Win-loss record based on covering the spread, not just winning the game. A team can win SU but lose ATS if they didn't win by enough.</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">EFFICIENCY METRICS</p>
+      <table>
+        <tbody>
+          <tr><td class="metric-name" style="width:160px;">EPA (Expected Points Added)</td><td style="text-align:left;">Measures how much a single play changes a team's expected points, based on the down, distance, and field position it happened in. A play with positive EPA helped the offense; negative EPA helped the defense. "EPA per play" is just the average across all plays — higher is better for an offense, and lower (more negative) is better for a defense.</td></tr>
+          <tr><td class="metric-name">EPA Differential</td><td style="text-align:left;">A team's offensive EPA/play minus its defensive EPA/play allowed — a quick one-number summary of overall team strength.</td></tr>
+          <tr><td class="metric-name">DVOA (Defense-adjusted Value Over Average)</td><td style="text-align:left;">A rating that compares every single play to the league-average result for that same situation, then adjusts for the strength of the opponent faced. It's published by FTN Fantasy / Football Outsiders, not freely available via API. Higher DVOA is better on offense; more negative DVOA is better on defense.</td></tr>
+          <tr><td class="metric-name">Success Rate</td><td style="text-align:left;">The percentage of plays that counted as "successful" for the down: roughly gaining 40% of the needed yards on 1st down, 60% on 2nd down, and 100% on 3rd or 4th down. It measures consistency rather than big, game-breaking plays.</td></tr>
+          <tr><td class="metric-name">Success Rate Allowed</td><td style="text-align:left;">The same idea, from the defense's side — the percentage of opponent plays that were "successful" against them. Lower is better defense.</td></tr>
+          <tr><td class="metric-name">ANY/A (Adjusted Net Yards per Attempt)</td><td style="text-align:left;">A passing-efficiency stat that folds in yards, touchdowns, interceptions, and sacks into one number — a fuller picture of passing performance than plain yards per attempt.</td></tr>
+          <tr><td class="metric-name">ANY/A Differential</td><td style="text-align:left;">A team's own ANY/A on offense minus the ANY/A it allows on defense.</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">SCORING &amp; RECORD METRICS</p>
+      <table>
+        <tbody>
+          <tr><td class="metric-name" style="width:160px;">Point Differential</td><td style="text-align:left;">Total points scored minus total points allowed over the season — a simple, reliable measure of how dominant a team has been.</td></tr>
+          <tr><td class="metric-name">Pythagorean Wins</td><td style="text-align:left;">An expected win total calculated from points scored and allowed, rather than actual game outcomes. Teams that have won more games than their Pythagorean number suggests are often considered "due" for regression, and vice versa.</td></tr>
+          <tr><td class="metric-name">Turnover Differential</td><td style="text-align:left;">Turnovers gained (interceptions + fumble recoveries) minus turnovers lost. One of the stats most closely tied to winning.</td></tr>
+          <tr><td class="metric-name">3rd Down %</td><td style="text-align:left;">The percentage of third downs converted into a first down (offense) or allowed to be converted (defense).</td></tr>
+          <tr><td class="metric-name">Red Zone TD %</td><td style="text-align:left;">The percentage of trips inside the opponent's 20-yard line that end in a touchdown, rather than a field goal or turnover.</td></tr>
+          <tr><td class="metric-name">Time of Possession</td><td style="text-align:left;">How long a team's offense controls the ball over the course of a game. More time doesn't always mean more points, but it does mean fewer possessions for the other team.</td></tr>
+          <tr><td class="metric-name">Yards Per Play</td><td style="text-align:left;">A basic efficiency stat — total yards divided by total plays. Simpler than EPA or success rate, and less predictive, but still a useful sanity check.</td></tr>
+          <tr><td class="metric-name">Sack Rate / Pressure Rate</td><td style="text-align:left;">How often a quarterback is sacked or pressured (bad for the offense, good for the defense) relative to how often they drop back to pass.</td></tr>
+          <tr><td class="metric-name">Penalty Yards Differential</td><td style="text-align:left;">The net penalty yardage between the two teams — positive means the team has benefited from fewer/cheaper penalties than its opponent.</td></tr>
+        </tbody>
+      </table>
+
+      <p class="note">A few of these (DVOA especially) aren't available through a free live data feed — those need to be checked and entered by hand each week from a source like FTN Fantasy.</p>
+    </div>
+
+    <!-- FORUM SCREEN -->
+    <div class="content" id="forum-screen" style="display:none;">
+      <button class="link-btn" onclick="showScreen('home')">&lt;&lt; Back to homepage</button>
+      <p class="subtitle">Talk picks, lines, and takes with other visitors</p>
+
+      <div class="banner">
+        This is a static page with no server behind it, so posts and upvotes
+        only live in your current browser tab — refresh and it resets. Real
+        cross-visitor persistence would need a backend/database to plug in later.
+      </div>
+
+      <p>
+        <button class="win-btn" onclick="toggleForumForm()">+ New Post</button>
+        &nbsp; Sort:
+        <button class="link-btn" onclick="setForumSort('top')">Top</button> /
+        <button class="link-btn" onclick="setForumSort('new')">New</button>
+      </p>
+
+      <div class="forum-form" id="forum-form">
+        <label style="font-size:11px;">NAME</label>
+        <input type="text" id="forum-name" placeholder="Anonymous">
+        <label style="font-size:11px;">TITLE</label>
+        <input type="text" id="forum-title" placeholder="What's your take?">
+        <label style="font-size:11px;">MESSAGE</label>
+        <textarea id="forum-body" rows="3" placeholder="Say more here..."></textarea>
+        <button class="win-btn" onclick="submitForumPost()">Post</button>
+        <button class="win-btn" onclick="toggleForumForm()">Cancel</button>
+      </div>
+
+      <div class="forum-bar">GENERAL DISCUSSION</div>
+      <div class="forum-list" id="forum-list"></div>
+    </div>
+
+    <div class="statusbar">
+      <span id="status-label">Ready</span>
+      <span id="status-detail">Week 1 — 16 games</span>
+    </div>
+  </div>
+
+  <!-- WEATHER MODAL -->
+  <div class="modal-overlay" id="weather-overlay">
+    <div class="modal-window">
+      <div class="modal-titlebar">
+        <span id="weather-modal-title">Weather</span>
+        <div class="modal-close" onclick="closeWeatherModal()">x</div>
+      </div>
+      <div class="modal-body" id="weather-modal-body">Loading...</div>
+    </div>
+  </div>
+
+  <script>
+    function goToMatchup(teamAFull, teamBFull, nameA, nameB, mlA, mlB, spreadA, spreadB, totalGame, totalA, totalB, suA, suB, pdA, pdB) {
+      document.getElementById('team-a-input').value = teamAFull;
+      document.getElementById('team-b-input').value = teamBFull;
+      document.getElementById('matchup-subtitle').innerHTML =
+        `Now viewing: <strong>${teamAFull} @ ${teamBFull}</strong>`;
+
+      document.querySelectorAll('.th-team-a').forEach(el => el.textContent = nameA);
+      document.querySelectorAll('.th-team-b').forEach(el => el.textContent = nameB);
+
+      document.querySelectorAll('.edge-cell').forEach(el => {
+        const orig = el.getAttribute('data-orig');
+        el.textContent = orig.replace('Chiefs', nameA).replace('Ravens', nameB);
+      });
+
+      document.getElementById('bl-ml-a').textContent = mlA;
+      document.getElementById('bl-ml-b').textContent = mlB;
+      document.getElementById('bl-spread-a').textContent = spreadA;
+      document.getElementById('bl-spread-b').textContent = spreadB;
+      document.getElementById('bl-total-a').textContent = totalA;
+      document.getElementById('bl-total-b').textContent = totalB;
+      document.getElementById('bl-total-game').textContent = totalGame;
+
+      // These two rows are real 2026 season-to-date data, not sample:
+      document.getElementById('rec-su-a').textContent = suA;
+      document.getElementById('rec-su-b').textContent = suB;
+      document.getElementById('rec-ptdiff-a').textContent = pdA;
+      document.getElementById('rec-ptdiff-b').textContent = pdB;
+
+      document.getElementById('bl-updated-note').innerHTML = 'Lines, SU record, and point differential above are real for ' + nameA + ' vs ' + nameB + '. Everything else in the Efficiency Metrics / Recent Form / Box Score tables below is still the sample template until the stats pipeline is live.';
+
+      showScreen('matchup');
+    }
+
+    function showScreen(name) {
+      const home = document.getElementById('home-screen');
+      const matchup = document.getElementById('matchup-screen');
+      const glossary = document.getElementById('glossary-screen');
+      const forum = document.getElementById('forum-screen');
+      const titlebar = document.getElementById('titlebar-text');
+      const statusLabel = document.getElementById('status-label');
+      const statusDetail = document.getElementById('status-detail');
+
+      home.style.display = 'none';
+      matchup.style.display = 'none';
+      glossary.style.display = 'none';
+      forum.style.display = 'none';
+
+      if (name === 'matchup') {
+        matchup.style.display = 'block';
+        titlebar.textContent = 'NFL Matchup Comparison.txt';
+        statusLabel.textContent = 'Ready';
+        statusDetail.textContent = 'Sample data — Week not set';
+      } else if (name === 'glossary') {
+        glossary.style.display = 'block';
+        titlebar.textContent = 'Metrics Glossary.txt';
+        statusLabel.textContent = 'Ready';
+        statusDetail.textContent = 'Reference';
+      } else if (name === 'forum') {
+        forum.style.display = 'block';
+        titlebar.textContent = 'Fan Forum.txt';
+        statusLabel.textContent = 'Ready';
+        statusDetail.textContent = forumPosts.length + ' post(s)';
+        renderForum();
+      } else {
+        home.style.display = 'block';
+        titlebar.textContent = 'My Homepage.txt';
+        statusLabel.textContent = 'Ready';
+        statusDetail.textContent = 'Week 1 — 16 games';
+      }
+      window.scrollTo(0, 0);
+    }
+
+    function closeWeatherModal() {
+      document.getElementById('weather-overlay').classList.remove('active');
+    }
+
+    function weatherIcon(code) {
+      if (code === 0) return '☀️';
+      if (code >= 1 && code <= 2) return '🌤️';
+      if (code === 3) return '☁️';
+      if (code === 45 || code === 48) return '🌫️';
+      if (code >= 51 && code <= 57) return '🌦️';
+      if (code >= 61 && code <= 67) return '🌧️';
+      if (code >= 71 && code <= 77) return '🌨️';
+      if (code >= 80 && code <= 82) return '🌧️';
+      if (code >= 85 && code <= 86) return '🌨️';
+      if (code >= 95) return '⛈️';
+      return '🌡️';
+    }
+
+    function weatherLabel(code) {
+      if (code === 0) return 'Clear';
+      if (code >= 1 && code <= 2) return 'Partly Cloudy';
+      if (code === 3) return 'Overcast';
+      if (code === 45 || code === 48) return 'Foggy';
+      if (code >= 51 && code <= 57) return 'Drizzle';
+      if (code >= 61 && code <= 67) return 'Rain';
+      if (code >= 71 && code <= 77) return 'Snow';
+      if (code >= 80 && code <= 82) return 'Rain Showers';
+      if (code >= 85 && code <= 86) return 'Snow Showers';
+      if (code >= 95) return 'Thunderstorm';
+      return 'Unknown';
+    }
+
+    async function showWeather(venue, lat, lon, indoor, gameDate) {
+      const overlay = document.getElementById('weather-overlay');
+      const title = document.getElementById('weather-modal-title');
+      const body = document.getElementById('weather-modal-body');
+
+      title.textContent = venue;
+      overlay.classList.add('active');
+
+      if (indoor) {
+        body.innerHTML = `
+          <div class="wx-card">
+            <div class="wx-icon">🏟️</div>
+            <div class="wx-condition">Indoor / Fixed Roof</div>
+            <div class="wx-note">Weather has no effect on this game.</div>
+          </div>`;
+        return;
+      }
+
+      body.innerHTML = '<div class="wx-card"><div class="wx-note">Fetching live forecast...</div></div>';
+
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,windspeed_10m_max,weathercode&temperature_unit=fahrenheit&windspeed_unit=mph&timezone=auto&forecast_days=14`;
+        const res = await fetch(url);
+        const data = await res.json();
+        const cw = data.current_weather;
+
+        const idx = data.daily.time.indexOf(gameDate);
+
+        let gameDayHtml;
+        if (idx === -1) {
+          gameDayHtml = `<div class="wx-note" style="color:#8b0000;">Game day (${gameDate}) is too far out for a forecast yet — check back closer to kickoff.</div>`;
+        } else {
+          const hi = Math.round(data.daily.temperature_2m_max[idx]);
+          const lo = Math.round(data.daily.temperature_2m_min[idx]);
+          const precip = data.daily.precipitation_probability_max[idx];
+          const wind = Math.round(data.daily.windspeed_10m_max[idx]);
+          const code = data.daily.weathercode[idx];
+          gameDayHtml = `
+            <div class="wx-divider">GAME DAY FORECAST</div>
+            <div class="wx-card">
+              <div class="wx-icon">${weatherIcon(code)}</div>
+              <div class="wx-condition">${weatherLabel(code)}</div>
+              <div class="wx-grid">
+                <div><span class="wx-label">HIGH</span><span class="wx-value">${hi}&deg;F</span></div>
+                <div><span class="wx-label">LOW</span><span class="wx-value">${lo}&deg;F</span></div>
+                <div><span class="wx-label">RAIN</span><span class="wx-value">${precip}%</span></div>
+                <div><span class="wx-label">WIND</span><span class="wx-value">${wind}mph</span></div>
+              </div>
+            </div>
+          `;
+        }
+
+        body.innerHTML = `
+          <div class="wx-divider">RIGHT NOW</div>
+          <div class="wx-card">
+            <div class="wx-icon">${weatherIcon(cw.weathercode)}</div>
+            <div class="wx-condition">${weatherLabel(cw.weathercode)}</div>
+            <div class="wx-temp-now">${Math.round(cw.temperature)}&deg;F</div>
+            <div class="wx-note">Wind ${Math.round(cw.windspeed)} mph</div>
+          </div>
+          ${gameDayHtml}
+          <div class="wx-note" style="margin-top:8px;">Live data via Open-Meteo. Forecasts firm up closer to kickoff.</div>
+        `;
+      } catch (err) {
+        body.innerHTML = '<div class="wx-card"><div class="wx-note">Could not load live weather right now — try again in a moment.</div></div>';
+      }
+    }
+
+    // ---- LIVE SCHEDULE (ESPN public scoreboard — auto-updates to the current week) ----
+    const TEAM_INFO = {
+      NE:  { name: "New England Patriots",  bg: "#002244", fg: "#fff" },
+      BUF: { name: "Buffalo Bills",         bg: "#00338D", fg: "#C60C30" },
+      MIA: { name: "Miami Dolphins",        bg: "#008E97", fg: "#FC4C02" },
+      NYJ: { name: "New York Jets",         bg: "#125740", fg: "#fff" },
+      PIT: { name: "Pittsburgh Steelers",   bg: "#FFB612", fg: "#000" },
+      BAL: { name: "Baltimore Ravens",      bg: "#241773", fg: "#fff" },
+      CIN: { name: "Cincinnati Bengals",    bg: "#FB4F14", fg: "#000" },
+      CLE: { name: "Cleveland Browns",      bg: "#311D00", fg: "#FF3C00" },
+      JAX: { name: "Jacksonville Jaguars",  bg: "#101820", fg: "#D7A22A" },
+      HOU: { name: "Houston Texans",        bg: "#03202F", fg: "#A71930" },
+      IND: { name: "Indianapolis Colts",    bg: "#002C5F", fg: "#fff" },
+      TEN: { name: "Tennessee Titans",      bg: "#4B92DB", fg: "#0C2340" },
+      DEN: { name: "Denver Broncos",        bg: "#FB4F14", fg: "#002244" },
+      LAC: { name: "Los Angeles Chargers",  bg: "#0080C6", fg: "#FFC20E" },
+      KC:  { name: "Kansas City Chiefs",    bg: "#E31837", fg: "#FFB612" },
+      LV:  { name: "Las Vegas Raiders",     bg: "#000000", fg: "#A5ACAF" },
+      PHI: { name: "Philadelphia Eagles",   bg: "#004C54", fg: "#fff" },
+      DAL: { name: "Dallas Cowboys",        bg: "#002244", fg: "#869397" },
+      WSH: { name: "Washington Commanders", bg: "#5A1414", fg: "#FFB612" },
+      NYG: { name: "New York Giants",       bg: "#0B2265", fg: "#A71930" },
+      CHI: { name: "Chicago Bears",         bg: "#0B162A", fg: "#C83803" },
+      GB:  { name: "Green Bay Packers",     bg: "#203731", fg: "#FFB612" },
+      MIN: { name: "Minnesota Vikings",     bg: "#4F2683", fg: "#FFC62F" },
+      DET: { name: "Detroit Lions",         bg: "#0076B6", fg: "#fff" },
+      ATL: { name: "Atlanta Falcons",       bg: "#A71930", fg: "#fff" },
+      CAR: { name: "Carolina Panthers",     bg: "#0085CA", fg: "#fff" },
+      NO:  { name: "New Orleans Saints",    bg: "#D3BC8D", fg: "#101820" },
+      TB:  { name: "Tampa Bay Buccaneers",  bg: "#D50A0A", fg: "#fff" },
+      ARI: { name: "Arizona Cardinals",     bg: "#97233F", fg: "#fff" },
+      LAR: { name: "Los Angeles Rams",      bg: "#003594", fg: "#FFA300" },
+      SF:  { name: "San Francisco 49ers",   bg: "#AA0000", fg: "#fff" },
+      SEA: { name: "Seattle Seahawks",      bg: "#002244", fg: "#69BE28" },
+    };
+
+    // Home-stadium info, keyed by the HOME team's abbreviation. Used for the
+    // weather widget. Neutral-site/international games will fall back to
+    // this (slightly inaccurate for those rare cases) unless overridden.
+    const STADIUM_INFO = {
+      NE: ["Gillette Stadium — Foxborough, MA", 42.0909, -71.2643, false],
+      BUF: ["Highmark Stadium — Orchard Park, NY", 42.7738, -78.7869, false],
+      MIA: ["Hard Rock Stadium — Miami Gardens, FL", 25.9580, -80.2389, false],
+      NYJ: ["MetLife Stadium — East Rutherford, NJ", 40.8135, -74.0745, false],
+      PIT: ["Acrisure Stadium — Pittsburgh, PA", 40.4468, -80.0158, false],
+      BAL: ["M&T Bank Stadium — Baltimore, MD", 39.2780, -76.6227, false],
+      CIN: ["Paycor Stadium — Cincinnati, OH", 39.0955, -84.5161, false],
+      CLE: ["Huntington Bank Field — Cleveland, OH", 41.5061, -81.6995, false],
+      JAX: ["EverBank Stadium — Jacksonville, FL", 30.3239, -81.6373, false],
+      HOU: ["NRG Stadium — Houston, TX", 29.6847, -95.4107, true],
+      IND: ["Lucas Oil Stadium — Indianapolis, IN", 39.7601, -86.1639, true],
+      TEN: ["Nissan Stadium — Nashville, TN", 36.1665, -86.7713, false],
+      DEN: ["Empower Field at Mile High — Denver, CO", 39.7439, -105.0201, false],
+      LAC: ["SoFi Stadium — Inglewood, CA", 33.9535, -118.3392, true],
+      KC: ["GEHA Field at Arrowhead Stadium — Kansas City, MO", 39.0489, -94.4839, false],
+      LV: ["Allegiant Stadium — Las Vegas, NV", 36.0909, -115.1833, true],
+      PHI: ["Lincoln Financial Field — Philadelphia, PA", 39.9008, -75.1675, false],
+      DAL: ["AT&T Stadium — Arlington, TX", 32.7473, -97.0945, true],
+      WSH: ["Northwest Stadium — Landover, MD", 38.9077, -76.8645, false],
+      NYG: ["MetLife Stadium — East Rutherford, NJ", 40.8135, -74.0745, false],
+      CHI: ["Soldier Field — Chicago, IL", 41.8623, -87.6167, false],
+      GB: ["Lambeau Field — Green Bay, WI", 44.5013, -88.0622, false],
+      MIN: ["U.S. Bank Stadium — Minneapolis, MN", 44.9738, -93.2575, true],
+      DET: ["Ford Field — Detroit, MI", 42.3400, -83.0456, true],
+      ATL: ["Mercedes-Benz Stadium — Atlanta, GA", 33.7554, -84.4008, true],
+      CAR: ["Bank of America Stadium — Charlotte, NC", 35.2258, -80.8528, false],
+      NO: ["Caesars Superdome — New Orleans, LA", 29.9511, -90.0812, true],
+      TB: ["Raymond James Stadium — Tampa, FL", 27.9759, -82.5033, false],
+      ARI: ["State Farm Stadium — Glendale, AZ", 33.5276, -112.2626, true],
+      LAR: ["SoFi Stadium — Inglewood, CA", 33.9535, -118.3392, true],
+      SF: ["Levi's Stadium — Santa Clara, CA", 37.4032, -121.9698, false],
+      SEA: ["Lumen Field — Seattle, WA", 47.5952, -122.3316, false],
+    };
+
+    function fmtOdds(n) {
+      if (n === undefined || n === null || n === '') return null;
+      return n > 0 ? '+' + n : String(n);
+    }
+
+    async function loadSchedule() {
+      const container = document.getElementById('schedule-container');
+      const status = document.getElementById('schedule-status');
+      status.textContent = 'Loading...';
+
+      try {
+        const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+        const data = await res.json();
+        const events = data.events || [];
+
+        if (events.length === 0) {
+          container.innerHTML = '<p class="note">No games currently scheduled (likely bye week or offseason).</p>';
+          status.textContent = '';
+          return;
+        }
+
+        // Group by local calendar day
+        const groups = {};
+        events.forEach(ev => {
+          const d = new Date(ev.date);
+          const key = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+          if (!groups[key]) groups[key] = [];
+          groups[key].push(ev);
+        });
+
+        let html = '';
+        const outdoorGames = [];
+        Object.keys(groups).forEach(dayLabel => {
+          html += `<p class="section-label">${dayLabel.toUpperCase()}</p><table><thead>
+            <tr><th style="text-align:left;">Time</th><th style="text-align:left;">Matchup</th><th>Moneyline</th><th>Spread</th><th>Total</th><th>Weather</th><th>Score</th></tr>
+          </thead><tbody>`;
+
+          groups[dayLabel].forEach(ev => {
+            const comp = ev.competitions[0];
+            const home = comp.competitors.find(c => c.homeAway === 'home');
+            const away = comp.competitors.find(c => c.homeAway === 'away');
+            const homeAbbr = home.team.abbreviation;
+            const awayAbbr = away.team.abbreviation;
+            const homeInfo = TEAM_INFO[homeAbbr] || { name: home.team.displayName, bg: '#555', fg: '#fff' };
+            const awayInfo = TEAM_INFO[awayAbbr] || { name: away.team.displayName, bg: '#555', fg: '#fff' };
+            const homeRec = (home.records && home.records[0]) ? home.records[0].summary : '0-0';
+            const awayRec = (away.records && away.records[0]) ? away.records[0].summary : '0-0';
+
+            const state = comp.status.type.state; // 'pre' | 'in' | 'post'
+            const timeStr = new Date(ev.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+            let scoreHtml;
+            if (state === 'post') {
+              scoreHtml = `<span style="color:#8b0000;">Final: ${homeAbbr} ${home.score}, ${awayAbbr} ${away.score}</span>`;
+            } else if (state === 'in') {
+              const period = comp.status.period;
+              const clock = comp.status.displayClock;
+              scoreHtml = `<span style="color:#006400; font-weight:bold;">LIVE Q${period} ${clock} — ${awayAbbr} ${away.score}, ${homeAbbr} ${home.score}</span>`;
+            } else {
+              scoreHtml = `<span style="color:#555;">Kickoff ${timeStr}</span>`;
+            }
+
+            // Odds (if ESPN has posted a line for this game yet)
+            let mlText = '—', spreadText = '—', totalText = '—';
+            const odds = comp.odds && comp.odds[0];
+            let awayMLraw = '', homeMLraw = '', awaySpreadStr = '', homeSpreadStr = '';
+            if (odds) {
+              const homeML = fmtOdds(odds.homeTeamOdds && odds.homeTeamOdds.moneyLine);
+              const awayML = fmtOdds(odds.awayTeamOdds && odds.awayTeamOdds.moneyLine);
+              if (homeML && awayML) {
+                mlText = `${homeAbbr} ${homeML} / ${awayAbbr} ${awayML}`;
+                homeMLraw = homeML;
+                awayMLraw = awayML;
+              }
+              if (odds.details) spreadText = odds.details;
+              if (typeof odds.spread === 'number') {
+                homeSpreadStr = (odds.spread > 0 ? '+' : '') + odds.spread;
+                awaySpreadStr = (-odds.spread > 0 ? '+' : '') + (-odds.spread);
+              }
+              if (odds.overUnder) totalText = odds.overUnder;
+            }
+
+            const stadium = STADIUM_INFO[homeAbbr];
+            const wxCellId = `wx-${ev.id}`;
+            let weatherHtml = '<span style="color:#888;">—</span>';
+            if (stadium) {
+              const [label, lat, lon, indoor] = stadium;
+              const gameDate = ev.date.slice(0, 10);
+              weatherHtml = indoor
+                ? `<button class="weather-btn" id="${wxCellId}" onclick="showWeather('${label}', 0, 0, true)">🏟️ ${label.includes('roof') ? 'Roof' : 'Dome'}</button>`
+                : `<button class="weather-btn" id="${wxCellId}" onclick="showWeather('${label}', ${lat}, ${lon}, false, '${gameDate}')">⏳ Loading...</button>`;
+              if (!indoor) outdoorGames.push({ id: wxCellId, lat, lon, gameDate });
+            }
+
+            const pdA = state === 'post' ? (away.score - home.score >= 0 ? '+' : '') + (away.score - home.score) : '—';
+            const pdB = state === 'post' ? (home.score - away.score >= 0 ? '+' : '') + (home.score - away.score) : '—';
+
+            html += `<tr data-away="${awayInfo.name}" data-home="${homeInfo.name}">
+              <td class="metric-name">${timeStr}</td>
+              <td class="metric-name" style="cursor:pointer;" onclick="goToMatchup('${awayInfo.name}','${homeInfo.name}','${away.team.shortDisplayName}','${home.team.shortDisplayName}','${awayMLraw}','${homeMLraw}','${awaySpreadStr}','${homeSpreadStr}','${totalText}','—','—','${awayRec}','${homeRec}','${pdA}','${pdB}')" title="Click to open in Matchup Comparison">
+                <span class="team-badge" style="background:${awayInfo.bg};color:${awayInfo.fg};">${awayAbbr}</span>${awayInfo.name} <span style="font-size:11px; color:#555;">(2026: ${awayRec})</span><br>
+                <span class="team-badge" style="background:${homeInfo.bg};color:${homeInfo.fg};">${homeAbbr}</span>${homeInfo.name} <span style="font-size:11px; color:#555;">(2026: ${homeRec})</span>
+              </td>
+              <td class="cell-ml">${mlText}</td>
+              <td class="cell-spread">${spreadText}</td>
+              <td class="cell-total">${totalText}</td>
+              <td>${weatherHtml}</td>
+              <td>${scoreHtml}</td>
+            </tr>`;
+          });
+
+          html += '</tbody></table>';
+        });
+
+        container.innerHTML = html;
+        status.textContent = `Updated just now — ${events.length} game(s) this week.`;
+
+        // Populate live icon + temp for each outdoor game's inline button
+        outdoorGames.forEach(async g => {
+          try {
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${g.lat}&longitude=${g.lon}&daily=temperature_2m_max,weathercode&temperature_unit=fahrenheit&timezone=auto&forecast_days=14`;
+            const res = await fetch(url);
+            const data = await res.json();
+            const idx = data.daily.time.indexOf(g.gameDate);
+            const btn = document.getElementById(g.id);
+            if (!btn) return;
+            if (idx === -1) {
+              btn.innerHTML = '📅 TBD';
+            } else {
+              const hi = Math.round(data.daily.temperature_2m_max[idx]);
+              const code = data.daily.weathercode[idx];
+              btn.innerHTML = `${weatherIcon(code)} ${hi}&deg;F`;
+            }
+          } catch (e) {
+            const btn = document.getElementById(g.id);
+            if (btn) btn.textContent = '—';
+          }
+        });
+      } catch (err) {
+        container.innerHTML = '<p class="note">Could not load the live schedule right now. Try the refresh button in a moment.</p>';
+        status.textContent = '';
+      }
+    }
+
+    loadSchedule();
+
+    let forumPosts = [
+      { id: 4, name: "gridiron_greg", title: "Fading the Ravens as home dogs this year?", body: "Feels like BAL keeps getting undervalued as underdogs at home. Anyone else buy in early?", votes: 12, time: Date.now() - 1000*60*60*5 },
+      { id: 3, name: "coverchaser", title: "EPA vs DVOA — which do you actually trust more?", body: "I lean EPA since it's free and updates fast, but DVOA's opponent adjustment feels more honest. Curious what this crowd uses.", votes: 9, time: Date.now() - 1000*60*60*20 },
+      { id: 2, name: "anonymous", title: "Week 1 unders I'm eyeing", body: "A few early-season totals always run a bit high before offenses find rhythm. Watching a couple of the lower-scoring O/Us closely.", votes: 6, time: Date.now() - 1000*60*60*30 },
+      { id: 1, name: "powerplayer", title: "Welcome to the forum!", body: "Post your Week 1 thoughts, questions about the metrics, whatever. Keep it civil.", votes: 3, time: Date.now() - 1000*60*60*48 },
+    ];
+    let forumNextId = 5;
+    let forumSort = 'top';
+    let forumVoted = {};
+
+    function toggleForumForm() {
+      const form = document.getElementById('forum-form');
+      form.style.display = (form.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function setForumSort(mode) {
+      forumSort = mode;
+      renderForum();
+    }
+
+    function submitForumPost() {
+      const name = document.getElementById('forum-name').value.trim() || 'Anonymous';
+      const title = document.getElementById('forum-title').value.trim();
+      const body = document.getElementById('forum-body').value.trim();
+      if (!title) { alert('Give your post a title first.'); return; }
+
+      forumPosts.unshift({ id: forumNextId++, name, title, body, votes: 1, time: Date.now() });
+
+      document.getElementById('forum-name').value = '';
+      document.getElementById('forum-title').value = '';
+      document.getElementById('forum-body').value = '';
+      toggleForumForm();
+      renderForum();
+    }
+
+    function upvotePost(id) {
+      const post = forumPosts.find(p => p.id === id);
+      if (!post) return;
+      if (forumVoted[id]) {
+        post.votes -= 1;
+        delete forumVoted[id];
+      } else {
+        post.votes += 1;
+        forumVoted[id] = true;
+      }
+      renderForum();
+    }
+
+    function timeAgo(ts) {
+      const mins = Math.round((Date.now() - ts) / 60000);
+      if (mins < 60) return mins + 'm ago';
+      const hours = Math.round(mins / 60);
+      if (hours < 24) return hours + 'h ago';
+      return Math.round(hours / 24) + 'd ago';
+    }
+
+    function renderForum() {
+      const list = document.getElementById('forum-list');
+      const sorted = [...forumPosts].sort((a, b) =>
+        forumSort === 'top' ? b.votes - a.votes : b.time - a.time
+      );
+
+      list.innerHTML = sorted.map(p => `
+        <div class="forum-post">
+          <div class="upvote-box">
+            <button class="upvote-btn ${forumVoted[p.id] ? 'voted' : ''}" onclick="upvotePost(${p.id})">&#9650;</button>
+            <div class="upvote-count">${p.votes}</div>
+          </div>
+          <div class="forum-post-body">
+            <div class="forum-post-title">${p.title}</div>
+            <div class="forum-post-text">${p.body}</div>
+            <div class="forum-post-meta">posted by ${p.name} &middot; ${timeAgo(p.time)}</div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('status-detail').textContent = forumPosts.length + ' post(s)';
+    }
+  </script>
+
+</body>
+</html>

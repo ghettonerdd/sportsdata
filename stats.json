@@ -1,89 +1,89 @@
 {
   "season": 2026,
-  "generated_at": "2026-10-06T10:03:54.232951+00:00",
+  "generated_at": "2026-10-13T10:06:33.897684+00:00",
   "has_data": true,
   "note": "DVOA is not included \u2014 no public data source exists for it. Enter manually.",
   "teams": {
     "ARI": {
-      "epa_per_play_off": -0.029,
-      "epa_per_play_def": 0.067,
-      "success_rate_off": 49.4,
-      "success_rate_allowed": 47.4,
-      "any_a_off": 4.35,
-      "plays_off": 259,
-      "plays_def": 230
+      "epa_per_play_off": -0.018,
+      "epa_per_play_def": 0.124,
+      "success_rate_off": 49.2,
+      "success_rate_allowed": 47.1,
+      "any_a_off": 4.52,
+      "plays_off": 329,
+      "plays_def": 295
     },
     "LAC": {
-      "epa_per_play_off": -0.159,
-      "epa_per_play_def": -0.007,
-      "success_rate_off": 42.4,
-      "success_rate_allowed": 45.5,
-      "any_a_off": 3.83,
-      "plays_off": 245,
-      "plays_def": 244
+      "epa_per_play_off": -0.207,
+      "epa_per_play_def": -0.057,
+      "success_rate_off": 41.4,
+      "success_rate_allowed": 43.2,
+      "any_a_off": 3.44,
+      "plays_off": 307,
+      "plays_def": 301
     },
     "PIT": {
-      "epa_per_play_off": -0.106,
-      "epa_per_play_def": -0.001,
-      "success_rate_off": 44.4,
-      "success_rate_allowed": 48.7,
-      "any_a_off": 4.71,
-      "plays_off": 250,
-      "plays_def": 224
+      "epa_per_play_off": -0.046,
+      "epa_per_play_def": 0.0,
+      "success_rate_off": 45.0,
+      "success_rate_allowed": 48.1,
+      "any_a_off": 5.31,
+      "plays_off": 302,
+      "plays_def": 293
     },
     "ATL": {
-      "epa_per_play_off": -0.024,
-      "epa_per_play_def": -0.057,
-      "success_rate_off": 52.3,
-      "success_rate_allowed": 41.3,
-      "any_a_off": 4.4,
-      "plays_off": 243,
-      "plays_def": 252
+      "epa_per_play_off": -0.023,
+      "epa_per_play_def": -0.035,
+      "success_rate_off": 49.8,
+      "success_rate_allowed": 44.4,
+      "any_a_off": 4.73,
+      "plays_off": 307,
+      "plays_def": 324
     },
     "IND": {
-      "epa_per_play_off": -0.066,
-      "epa_per_play_def": 0.069,
-      "success_rate_off": 48.6,
+      "epa_per_play_off": -0.051,
+      "epa_per_play_def": 0.099,
+      "success_rate_off": 48.1,
       "success_rate_allowed": 48.0,
-      "any_a_off": 3.91,
-      "plays_off": 251,
-      "plays_def": 250
+      "any_a_off": 4.36,
+      "plays_off": 320,
+      "plays_def": 302
     },
     "BAL": {
-      "epa_per_play_off": 0.186,
-      "epa_per_play_def": -0.016,
-      "success_rate_off": 58.2,
-      "success_rate_allowed": 44.8,
-      "any_a_off": 8.9,
-      "plays_off": 232,
-      "plays_def": 248
+      "epa_per_play_off": 0.151,
+      "epa_per_play_def": -0.017,
+      "success_rate_off": 57.6,
+      "success_rate_allowed": 43.9,
+      "any_a_off": 8.0,
+      "plays_off": 304,
+      "plays_def": 312
     },
     "BUF": {
-      "epa_per_play_off": 0.191,
-      "epa_per_play_def": 0.106,
-      "success_rate_off": 53.6,
-      "success_rate_allowed": 50.2,
-      "any_a_off": 7.01,
-      "plays_off": 235,
-      "plays_def": 271
+      "epa_per_play_off": 0.211,
+      "epa_per_play_def": 0.134,
+      "success_rate_off": 54.6,
+      "success_rate_allowed": 51.1,
+      "any_a_off": 7.16,
+      "plays_off": 293,
+      "plays_def": 350
     },
     "HOU": {
-      "epa_per_play_off": -0.026,
-      "epa_per_play_def": 0.035,
-      "success_rate_off": 46.8,
-      "success_rate_allowed": 45.3,
-      "any_a_off": 6.74,
-      "plays_off": 250,
-      "plays_def": 254
+      "epa_per_play_off": 0.005,
+      "epa_per_play_def": -0.043,
+      "success_rate_off": 48.2,
+      "success_rate_allowed": 44.6,
+      "any_a_off": 6.8,
+      "plays_off": 311,
+      "plays_def": 312
     },
     "CHI": {
-      "epa_per_play_off": 0.107,
-      "epa_per_play_def": -0.059,
-      "success_rate_off": 51.0,
-      "success_rate_allowed": 48.4,
-      "any_a_off": 6.35,
-      "plays_off": 292,
-      "plays_def": 192
+      "epa_per_play_off": 0.023,
+      "epa_per_play_def": 0.015,
+      "success_rate_off": 49.2,
+      "success_rate_allowed": 48.0,
+      "any_a_off": 4.93,
+      "plays_off": 360,
+      "plays_def": 250
     },
     "CAR": {
       "epa_per_play_off": 0.115,
@@ -95,49 +95,49 @@
       "plays_def": 267
     },
     "CLE": {
-      "epa_per_play_off": -0.018,
-      "epa_per_play_def": 0.016,
-      "success_rate_off": 46.0,
-      "success_rate_allowed": 49.0,
-      "any_a_off": 5.95,
-      "plays_off": 224,
-      "plays_def": 255
+      "epa_per_play_off": -0.08,
+      "epa_per_play_def": -0.022,
+      "success_rate_off": 42.6,
+      "success_rate_allowed": 48.0,
+      "any_a_off": 5.04,
+      "plays_off": 289,
+      "plays_def": 319
     },
     "JAX": {
-      "epa_per_play_off": 0.178,
-      "epa_per_play_def": -0.059,
-      "success_rate_off": 52.7,
-      "success_rate_allowed": 47.5,
-      "any_a_off": 7.22,
-      "plays_off": 220,
-      "plays_def": 236
+      "epa_per_play_off": 0.151,
+      "epa_per_play_def": -0.088,
+      "success_rate_off": 49.0,
+      "success_rate_allowed": 44.1,
+      "any_a_off": 7.17,
+      "plays_off": 288,
+      "plays_def": 295
     },
     "DAL": {
-      "epa_per_play_off": 0.166,
-      "epa_per_play_def": 0.201,
-      "success_rate_off": 51.8,
-      "success_rate_allowed": 56.7,
-      "any_a_off": 7.05,
-      "plays_off": 251,
-      "plays_def": 240
+      "epa_per_play_off": 0.127,
+      "epa_per_play_def": 0.193,
+      "success_rate_off": 52.4,
+      "success_rate_allowed": 54.8,
+      "any_a_off": 6.77,
+      "plays_off": 307,
+      "plays_def": 303
     },
     "NYG": {
-      "epa_per_play_off": -0.047,
-      "epa_per_play_def": 0.016,
-      "success_rate_off": 45.4,
-      "success_rate_allowed": 51.3,
-      "any_a_off": 5.01,
-      "plays_off": 240,
-      "plays_def": 228
+      "epa_per_play_off": -0.019,
+      "epa_per_play_def": 0.036,
+      "success_rate_off": 45.2,
+      "success_rate_allowed": 50.3,
+      "any_a_off": 5.39,
+      "plays_off": 323,
+      "plays_def": 288
     },
     "DEN": {
-      "epa_per_play_off": -0.015,
-      "epa_per_play_def": 0.063,
-      "success_rate_off": 46.3,
-      "success_rate_allowed": 47.1,
-      "any_a_off": 5.2,
-      "plays_off": 229,
-      "plays_def": 261
+      "epa_per_play_off": -0.066,
+      "epa_per_play_def": -0.025,
+      "success_rate_off": 43.7,
+      "success_rate_allowed": 45.2,
+      "any_a_off": 5.13,
+      "plays_off": 286,
+      "plays_def": 323
     },
     "KC": {
       "epa_per_play_off": 0.172,
@@ -149,148 +149,148 @@
       "plays_def": 252
     },
     "MIN": {
-      "epa_per_play_off": -0.098,
-      "epa_per_play_def": -0.184,
-      "success_rate_off": 39.3,
-      "success_rate_allowed": 35.9,
-      "any_a_off": 4.5,
-      "plays_off": 234,
-      "plays_def": 237
+      "epa_per_play_off": -0.099,
+      "epa_per_play_def": -0.21,
+      "success_rate_off": 41.9,
+      "success_rate_allowed": 35.0,
+      "any_a_off": 4.98,
+      "plays_off": 298,
+      "plays_def": 280
     },
     "GB": {
-      "epa_per_play_off": -0.091,
-      "epa_per_play_def": 0.041,
-      "success_rate_off": 41.8,
-      "success_rate_allowed": 51.6,
-      "any_a_off": 6.01,
-      "plays_off": 232,
-      "plays_def": 256
+      "epa_per_play_off": -0.021,
+      "epa_per_play_def": -0.039,
+      "success_rate_off": 42.8,
+      "success_rate_allowed": 49.4,
+      "any_a_off": 6.9,
+      "plays_off": 290,
+      "plays_def": 324
     },
     "MIA": {
-      "epa_per_play_off": -0.141,
-      "epa_per_play_def": 0.099,
-      "success_rate_off": 34.3,
-      "success_rate_allowed": 54.6,
-      "any_a_off": 4.67,
-      "plays_off": 210,
-      "plays_def": 229
+      "epa_per_play_off": -0.115,
+      "epa_per_play_def": 0.108,
+      "success_rate_off": 38.0,
+      "success_rate_allowed": 56.6,
+      "any_a_off": 3.99,
+      "plays_off": 274,
+      "plays_def": 290
     },
     "LV": {
-      "epa_per_play_off": 0.009,
-      "epa_per_play_def": -0.104,
-      "success_rate_off": 47.3,
-      "success_rate_allowed": 48.3,
-      "any_a_off": 6.77,
-      "plays_off": 260,
-      "plays_def": 242
+      "epa_per_play_off": 0.004,
+      "epa_per_play_def": 0.005,
+      "success_rate_off": 48.3,
+      "success_rate_allowed": 49.8,
+      "any_a_off": 6.79,
+      "plays_off": 317,
+      "plays_def": 305
     },
     "SEA": {
-      "epa_per_play_off": 0.018,
-      "epa_per_play_def": -0.137,
-      "success_rate_off": 47.9,
-      "success_rate_allowed": 39.6,
-      "any_a_off": 7.79,
-      "plays_off": 234,
-      "plays_def": 245
+      "epa_per_play_off": -0.073,
+      "epa_per_play_def": -0.133,
+      "success_rate_off": 45.6,
+      "success_rate_allowed": 41.3,
+      "any_a_off": 6.54,
+      "plays_off": 294,
+      "plays_def": 300
     },
     "NE": {
-      "epa_per_play_off": -0.049,
-      "epa_per_play_def": -0.007,
-      "success_rate_off": 44.8,
-      "success_rate_allowed": 47.4,
-      "any_a_off": 4.32,
-      "plays_off": 250,
-      "plays_def": 228
-    },
-    "DET": {
-      "epa_per_play_off": 0.144,
-      "epa_per_play_def": 0.183,
-      "success_rate_off": 53.6,
-      "success_rate_allowed": 54.7,
-      "any_a_off": 7.51,
-      "plays_off": 265,
+      "epa_per_play_off": 0.046,
+      "epa_per_play_def": -0.009,
+      "success_rate_off": 47.0,
+      "success_rate_allowed": 48.4,
+      "any_a_off": 5.96,
+      "plays_off": 313,
       "plays_def": 285
     },
+    "DET": {
+      "epa_per_play_off": 0.18,
+      "epa_per_play_def": 0.152,
+      "success_rate_off": 52.1,
+      "success_rate_allowed": 53.5,
+      "any_a_off": 7.69,
+      "plays_off": 330,
+      "plays_def": 355
+    },
     "NO": {
-      "epa_per_play_off": -0.01,
-      "epa_per_play_def": 0.146,
-      "success_rate_off": 48.8,
-      "success_rate_allowed": 58.0,
-      "any_a_off": 5.68,
-      "plays_off": 291,
-      "plays_def": 245
+      "epa_per_play_off": -0.054,
+      "epa_per_play_def": 0.094,
+      "success_rate_off": 46.4,
+      "success_rate_allowed": 56.6,
+      "any_a_off": 5.0,
+      "plays_off": 334,
+      "plays_def": 309
     },
     "NYJ": {
-      "epa_per_play_off": 0.018,
-      "epa_per_play_def": -0.0,
-      "success_rate_off": 49.6,
-      "success_rate_allowed": 53.0,
-      "any_a_off": 6.41,
-      "plays_off": 226,
-      "plays_def": 247
+      "epa_per_play_off": -0.025,
+      "epa_per_play_def": -0.062,
+      "success_rate_off": 48.3,
+      "success_rate_allowed": 48.4,
+      "any_a_off": 5.96,
+      "plays_off": 290,
+      "plays_def": 312
     },
     "TEN": {
-      "epa_per_play_off": -0.085,
-      "epa_per_play_def": 0.065,
-      "success_rate_off": 42.6,
-      "success_rate_allowed": 48.0,
-      "any_a_off": 5.01,
-      "plays_off": 216,
-      "plays_def": 248
+      "epa_per_play_off": -0.149,
+      "epa_per_play_def": 0.078,
+      "success_rate_off": 42.3,
+      "success_rate_allowed": 49.2,
+      "any_a_off": 4.24,
+      "plays_off": 274,
+      "plays_def": 309
     },
     "LA": {
-      "epa_per_play_off": 0.026,
-      "epa_per_play_def": -0.122,
-      "success_rate_off": 51.9,
-      "success_rate_allowed": 45.6,
-      "any_a_off": 5.81,
-      "plays_off": 268,
-      "plays_def": 239
+      "epa_per_play_off": 0.073,
+      "epa_per_play_def": -0.042,
+      "success_rate_off": 52.4,
+      "success_rate_allowed": 48.1,
+      "any_a_off": 6.27,
+      "plays_off": 347,
+      "plays_def": 297
     },
     "SF": {
-      "epa_per_play_off": 0.291,
-      "epa_per_play_def": 0.017,
-      "success_rate_off": 60.8,
-      "success_rate_allowed": 47.5,
-      "any_a_off": 10.55,
-      "plays_off": 222,
-      "plays_def": 257
+      "epa_per_play_off": 0.209,
+      "epa_per_play_def": -0.067,
+      "success_rate_off": 58.5,
+      "success_rate_allowed": 45.4,
+      "any_a_off": 9.15,
+      "plays_off": 277,
+      "plays_def": 317
     },
     "TB": {
-      "epa_per_play_off": -0.154,
-      "epa_per_play_def": -0.059,
+      "epa_per_play_off": -0.088,
+      "epa_per_play_def": -0.057,
       "success_rate_off": 47.5,
-      "success_rate_allowed": 42.3,
-      "any_a_off": 3.32,
-      "plays_off": 238,
-      "plays_def": 222
+      "success_rate_allowed": 45.0,
+      "any_a_off": 3.9,
+      "plays_off": 301,
+      "plays_def": 278
     },
     "CIN": {
-      "epa_per_play_off": 0.055,
-      "epa_per_play_def": -0.029,
-      "success_rate_off": 49.0,
-      "success_rate_allowed": 49.6,
-      "any_a_off": 6.37,
-      "plays_off": 247,
-      "plays_def": 236
+      "epa_per_play_off": 0.072,
+      "epa_per_play_def": -0.03,
+      "success_rate_off": 51.9,
+      "success_rate_allowed": 49.7,
+      "any_a_off": 6.69,
+      "plays_off": 308,
+      "plays_def": 300
     },
     "WAS": {
-      "epa_per_play_off": -0.045,
-      "epa_per_play_def": 0.032,
-      "success_rate_off": 42.1,
-      "success_rate_allowed": 48.1,
-      "any_a_off": 5.93,
-      "plays_off": 259,
-      "plays_def": 233
+      "epa_per_play_off": -0.015,
+      "epa_per_play_def": 0.04,
+      "success_rate_off": 42.9,
+      "success_rate_allowed": 47.2,
+      "any_a_off": 5.74,
+      "plays_off": 319,
+      "plays_def": 316
     },
     "PHI": {
-      "epa_per_play_off": -0.107,
-      "epa_per_play_def": 0.071,
-      "success_rate_off": 41.7,
-      "success_rate_allowed": 48.1,
-      "any_a_off": 4.34,
-      "plays_off": 228,
-      "plays_def": 262
+      "epa_per_play_off": -0.127,
+      "epa_per_play_def": 0.069,
+      "success_rate_off": 39.4,
+      "success_rate_allowed": 45.8,
+      "any_a_off": 4.6,
+      "plays_off": 287,
+      "plays_def": 330
     }
   }
 }
